@@ -1,0 +1,19 @@
+<h1>Details for job #<%= @queue_classic_job.id %></h1>
+
+<table class="table table-bordered table-hover">
+  <% @queue_classic_job.attributes.each do |attr, value| %>
+    <tr>
+      <td><strong><%= attr %></strong></td>
+      <td><strong><%= value %></strong></td>
+    </tr>
+  <% end %>
+</table>
+
+<h2>Locks</h2>
+<% if @locks.count == 0 %>
+  There are no locks related.
+<% end %>
+<% @locks.each do |lock| %>
+  <hr>
+  <%= lock %>
+<% end %>
